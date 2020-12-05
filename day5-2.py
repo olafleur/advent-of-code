@@ -1,5 +1,6 @@
 f = open("day5-puzzle-input.txt", "r")
 max_id = 0
+min_id = 999
 
 
 def calculer_id(chaine):
@@ -25,5 +26,21 @@ for ligne in f:
     seat_id = calculer_id(ligne)
     if seat_id > max_id:
         max_id = seat_id
+    if seat_id < min_id:
+        min_id = seat_id
 
 print(max_id)
+print(min_id)
+
+liste = []
+
+for i in range(89, 990):
+    liste.append(i)
+
+f = open("day5-puzzle-input.txt", "r")
+
+for ligne in f:
+    seat_id = calculer_id(ligne)
+    liste.remove(seat_id)
+
+print(liste)
