@@ -1,4 +1,4 @@
-f = open("day10-small-input.txt", "r")
+f = open("day10-puzzle-input.txt", "r")
 
 chaines = f.readlines()
 
@@ -10,33 +10,33 @@ joltages.append(0)
 joltages.append(max + 3)
 joltages.sort()
 
-
-def est_valide(liste):
-    valide = True
-
-    for i in range(len(liste) - 1):
-        if liste[i + 1] - liste[i] > 3:
-            valide = False
-
-    return valide
+count = 0
 
 
-possibles = set()
+def agrandir(liste):
+    global count
+    derniere = liste[-1]
 
-
-def trouver_valide(liste):
-    if est_valide(liste):
-        possibles.add(tuple(liste))
-
-        for i in liste[1:-1]:
-            nouveau = liste[:]
-            nouveau.remove(i)
-
-            trouver_valide(nouveau)
-    else:
+    if derniere == max + 3:
+        count += 1
+        print(liste)
         return
 
+    if derniere + 1 in joltages:
+        liste1 = liste[:]
+        liste1.append(derniere + 1)
+        agrandir(liste1)
+    if derniere + 2 in joltages:
+        liste2 = liste[:]
+        liste2.append(derniere + 2)
+        agrandir(liste2)
+    if derniere + 3 in joltages:
+        liste3 = liste[:]
+        liste3.append(derniere + 3)
+        agrandir(liste3)
 
-trouver_valide(joltages)
-print(possibles)
-print(str(len(possibles)) + " possibilités")
+    return
+
+
+agrandir([0])
+print(count)
