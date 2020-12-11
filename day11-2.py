@@ -52,7 +52,7 @@ def chercher_dans_direction_h(grille, i, j):
         return grille[i][j]
 
     if j > 0:
-        return chercher_dans_direction_hg(grille, i, j - 1)
+        return chercher_dans_direction_h(grille, i, j - 1)
 
     return None
 
