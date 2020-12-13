@@ -1,3 +1,31 @@
+from functools import reduce
+
+
+# code trouvé ici : https://rosettacode.org/wiki/Chinese_remainder_theorem#Python_3.6
+def chinese_remainder(n, a):
+    sum = 0
+    prod = reduce(lambda a, b: a * b, n)
+    for n_i, a_i in zip(n, a):
+        p = prod // n_i
+        sum += a_i * mul_inv(p, n_i) * p
+    return sum % prod
+
+
+def mul_inv(a, b):
+    b0 = b
+    x0, x1 = 0, 1
+    if b == 1:
+        return 1
+    while a > 1:
+        q = a // b
+        a, b = b, a % b
+        x0, x1 = x1 - q * x0, x0
+    if x1 < 0:
+        x1 += b0
+    return x1
+
+
+# début de mon code
 f = open("day13-puzzle-input.txt", "r")
 
 f.readline()  # ignorer
@@ -30,21 +58,12 @@ for bus in les_bus:
 
 nb = maximum - indices[0]
 
-trouve = False
-a_sa_place = True
-i = 0
+print(indices)
+print(les_bus)
 
-while not trouve:
-    while i < len(indices) and a_sa_place:
-        if (nb + indices[i]) % les_bus[i] != 0:
-            a_sa_place = False
-        i += 1
+a = []
 
-    if a_sa_place:
-        trouve = True
+for i in range(len(indices)):
+    a.append(les_bus[i] - indices[i])
 
-    nb += maximum
-    i = 0
-    a_sa_place = True
-
-print(nb - maximum)
+print(chinese_remainder(les_bus, a))
