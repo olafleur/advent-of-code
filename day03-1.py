@@ -1,4 +1,4 @@
-f = open("day3-1-puzzle-input.txt", "r")
+f = open("day03-1-puzzle-input.txt", "r")
 
 horizontal = 3
 vertical = 1

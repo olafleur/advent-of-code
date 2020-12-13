@@ -1,4 +1,4 @@
-f = open("day7-puzzle-input.txt", "r")
+f = open("day07-puzzle-input.txt", "r")
 
 lignes = f.readlines()
 regles = dict()

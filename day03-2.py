@@ -3,7 +3,7 @@ def calcul_nb_arbres(horizontal):
     compteur_horizontal = 0
     nb_arbres = 0
 
-    f = open("day3-1-puzzle-input.txt", "r")
+    f = open("day03-1-puzzle-input.txt", "r")
 
     for ligne in f:
         if ligne[compteur_horizontal % longueur_ligne] == '#':
@@ -20,7 +20,7 @@ def calcul_2_1():
     compteur_horizontal = 0
     nb_arbres = 0
 
-    f = open("day3-1-puzzle-input.txt", "r")
+    f = open("day03-1-puzzle-input.txt", "r")
 
     for ligne in f:
         if compteur_vertical % 2 == 0:

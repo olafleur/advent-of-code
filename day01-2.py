@@ -1,4 +1,4 @@
-f = open("day1-1-puzzle-input.txt", "r")
+f = open("day01-1-puzzle-input.txt", "r")
 nombres = []
 
 for x in f:

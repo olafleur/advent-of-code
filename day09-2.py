@@ -1,4 +1,4 @@
-f = open("day9-puzzle-input.txt", "r")
+f = open("day09-puzzle-input.txt", "r")
 
 lignes = f.readlines()
 

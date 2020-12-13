@@ -3,7 +3,7 @@ def structurer(chaine):
 
 
 def creer_instructions():
-    f = open("day8-puzzle-input.txt", "r")
+    f = open("day08-puzzle-input.txt", "r")
     lignes = f.readlines()
     return list(map(structurer, lignes))
 

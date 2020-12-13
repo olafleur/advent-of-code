@@ -1,4 +1,4 @@
-f = open("day6-puzzle-input.txt", "r")
+f = open("day06-puzzle-input.txt", "r")
 
 liste = f.readlines()
 indices = []

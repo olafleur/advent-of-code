@@ -23,7 +23,7 @@ def valide(ligne):
     return minimum <= count(lettre, chaine) <= maximum
 
 
-f = open("day2-1-puzzle-input.txt", "r")
+f = open("day02-1-puzzle-input.txt", "r")
 nombre_valide = 0
 
 for ligne_fichier in f:
