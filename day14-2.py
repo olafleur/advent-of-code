@@ -33,8 +33,6 @@ def appliquer_masque(valeur, adresse):
 
     generer_adresses(resultat, valeur)
 
-    return resultat
-
 
 for line in f:
     if "mask" in line:
@@ -43,14 +41,13 @@ for line in f:
         split = line.split(" ")
         valeur = int(split[2])
         adresse = int(split[0][4:-1])
-        valeur_binaire = format(valeur, 'b').zfill(36)
         adresse_binaire = format(adresse, 'b').zfill(36)
 
-        appliquer_masque(str(valeur_binaire), str(adresse_binaire))
+        appliquer_masque(valeur, str(adresse_binaire))
 
 somme = 0
 
 for valeur in memoire.values():
-    somme += int(valeur, 2)
+    somme += valeur
 
 print(somme)
