@@ -1,3 +1,6 @@
+import time
+
+start_time = time.time()
 tableau = [5, 2, 8, 16, 18, 0, 1]
 nombre_interessant = 30000000
 nombres_vus = dict()
@@ -24,3 +27,4 @@ for i in range(len(tableau) - 1, nombre_interessant):
     nombres_vus[tableau[i]] = i
 
 print(tableau[nombre_interessant - 1])
+print("--- %s seconds ---" % (time.time() - start_time))  # 24.49664807319641 seconds
