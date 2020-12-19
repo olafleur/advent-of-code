@@ -33,4 +33,11 @@ def evaluer(chaine):
 
         return evaluer(chaine[:deb] + evaluer(chaine[deb + 1:fin]) + chaine[fin+1:])
 
-#f = open("day18-puzzle-input.txt", "r")
+
+f = open("day18-puzzle-input.txt", "r")
+total = 0
+
+for ligne in f:
+    total += int(evaluer(ligne))
+
+print(total)
