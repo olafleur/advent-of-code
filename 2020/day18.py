@@ -15,6 +15,9 @@ def evaluer(chaine):
 
         return valeurs[0]
     else:
-        return "15"
+        deb = chaine.index("(")
+        fin = chaine.index(")")
+
+        return evaluer(chaine[:deb] + evaluer(chaine[deb + 1:fin]) + chaine[fin+1:])
 
 #f = open("day18-puzzle-input.txt", "r")
