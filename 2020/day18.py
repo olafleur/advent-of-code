@@ -5,6 +5,19 @@ def appliquer_operation(tab):
         return str(int(tab[0]) * int(tab[2]))
 
 
+def trouver_fin_correspondante(index, chaine):
+    compteur = 1
+
+    while compteur > 0:
+        index += 1
+        if chaine[index] == ')':
+            compteur -= 1
+        elif chaine[index] == '(':
+            compteur += 1
+
+    return index
+
+
 def evaluer(chaine):
     if "(" not in chaine:
         valeurs = chaine.split(" ")
@@ -16,7 +29,7 @@ def evaluer(chaine):
         return valeurs[0]
     else:
         deb = chaine.index("(")
-        fin = chaine.index(")")
+        fin = trouver_fin_correspondante(deb, chaine)
 
         return evaluer(chaine[:deb] + evaluer(chaine[deb + 1:fin]) + chaine[fin+1:])
 

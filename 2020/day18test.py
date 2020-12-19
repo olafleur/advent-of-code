@@ -16,6 +16,9 @@ class EvaluationTests(unittest.TestCase):
     def test_autre_parenthese(self):
         self.assertEqual(evaluer("3 + (4 * 3) + (12 * 3) * 4"), "204")
 
+    def test_parenthese_imbriquee(self):
+        self.assertEqual(evaluer("2 * ((5 + 2) * 4) + 7"), "63")
+
 
 if __name__ == '__main__':
     unittest.main()
