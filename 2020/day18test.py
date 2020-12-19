@@ -13,6 +13,9 @@ class EvaluationTests(unittest.TestCase):
     def test_parenthese(self):
         self.assertEqual(evaluer("3 + (4 * 3)"), "15")
 
+    def test_autre_parenthese(self):
+        self.assertEqual(evaluer("3 + (4 * 3) + (12 * 3) * 4"), "204")
+
 
 if __name__ == '__main__':
     unittest.main()
