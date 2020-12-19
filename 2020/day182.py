@@ -1,10 +1,3 @@
-#def appliquer_operation(tab):
-#    if tab[1] == '+':
-#        return str(int(tab[0]) + int(tab[2]))
-#    else:
-#        return str(int(tab[0]) * int(tab[2]))
-
-
 def appliquer_addition(tab):
     i = -1
 
