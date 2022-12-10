@@ -34,7 +34,25 @@ class Directory:
         return result
 
 
-f = open("day07-small-input.txt", "r")
+sizes = []
+
+
+def size_of_dir(directory):
+    size_dir = 0
+
+    for dire in directory.directories:
+        size_dir += size_of_dir(dire)
+
+    for file in directory.files:
+        size_dir += file.size
+
+    print('Directory ' + directory.name + ' is of size ' + str(size_dir))
+    sizes.append(size_dir)
+
+    return size_dir
+
+
+f = open("day07-puzzle-input.txt", "r")
 
 fs = Directory('/', [], [], None)
 
@@ -67,6 +85,8 @@ for ligne in f:
         cursor.add_file(ligne.split(' ')[1], int(ligne.split(' ')[0]))
 
 print(fs)
+size_of_dir(fs)
 
+print(sum(list(filter(lambda s: s < 100000, sizes))))
 
 
