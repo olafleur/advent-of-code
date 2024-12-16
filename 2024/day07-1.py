@@ -30,10 +30,3 @@ for line in f:
         total += calibration
 
 print(total)
-
-
-
-
-
-
-
